@@ -1,0 +1,230 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:balBotLib
+LIBS:tm4c123gh6pm
+LIBS:BalBot-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 3 4
+Title "BalanceBot Main Board"
+Date "2018-05-05"
+Rev "1"
+Comp "Newhbotics"
+Comment1 "Author: Michael Graves"
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L MPU-6500 U9
+U 1 1 5AEEBEAA
+P 6200 3400
+F 0 "U9" H 6200 3950 60  0000 C CNN
+F 1 "MPU-6500" H 6200 2850 60  0000 C CNN
+F 2 "" H 6200 3500 60  0001 C CNN
+F 3 "" H 6200 3500 60  0001 C CNN
+	1    6200 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L +3V3 #PWR45
+U 1 1 5AEEBEFF
+P 5650 2950
+F 0 "#PWR45" H 5650 2800 50  0001 C CNN
+F 1 "+3V3" H 5650 3090 50  0000 C CNN
+F 2 "" H 5650 2950 50  0000 C CNN
+F 3 "" H 5650 2950 50  0000 C CNN
+	1    5650 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5650 2950 5650 3250
+Wire Wire Line
+	5650 3000 5700 3000
+$Comp
+L GND #PWR44
+U 1 1 5AEEBF28
+P 5150 3850
+F 0 "#PWR44" H 5150 3600 50  0001 C CNN
+F 1 "GND" H 5150 3700 50  0000 C CNN
+F 2 "" H 5150 3850 50  0000 C CNN
+F 3 "" H 5150 3850 50  0000 C CNN
+	1    5150 3850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5150 3550 5150 3850
+Wire Wire Line
+	5150 3800 5700 3800
+Text GLabel 5650 3350 0    60   Input ~ 0
+ADO
+Wire Wire Line
+	5650 3350 5700 3350
+Text GLabel 8100 3400 1    60   Input ~ 0
+ADO
+$Comp
+L GND #PWR48
+U 1 1 5AEEBF6F
+P 8100 3450
+F 0 "#PWR48" H 8100 3200 50  0001 C CNN
+F 1 "GND" H 8100 3300 50  0000 C CNN
+F 2 "" H 8100 3450 50  0000 C CNN
+F 3 "" H 8100 3450 50  0000 C CNN
+	1    8100 3450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8100 3450 8100 3400
+Text Notes 7600 3050 0    60   ~ 0
+I2C ADDR LSB Selection\nGND: 0, 3V3: 1
+Text Notes 5000 2650 0    60   ~ 0
+INERTIAL MEASUREMENT UNIT (MPU-6050)\nI2C ADDR: 110100xb
+Text HLabel 6750 3150 2    60   Input ~ 0
+I2C_SDA
+Text HLabel 6750 3250 2    60   Input ~ 0
+I2C_SCL
+Wire Wire Line
+	6750 3250 6700 3250
+Wire Wire Line
+	6750 3150 6700 3150
+NoConn ~ 5700 3150
+NoConn ~ 6700 3650
+NoConn ~ 6700 3450
+Wire Wire Line
+	5700 3550 5150 3550
+Connection ~ 5150 3800
+Text HLabel 5650 3650 0    60   Output ~ 0
+MPU_INT
+Wire Wire Line
+	5650 3650 5700 3650
+$Comp
+L C C21
+U 1 1 5AEEC043
+P 9200 3350
+F 0 "C21" H 9225 3450 50  0000 L CNN
+F 1 "0.1uF" H 9225 3250 50  0000 L CNN
+F 2 "" H 9238 3200 50  0000 C CNN
+F 3 "" H 9200 3350 50  0000 C CNN
+	1    9200 3350
+	1    0    0    -1  
+$EndComp
+Text GLabel 5650 3450 0    60   Input ~ 0
+REGOUT
+Wire Wire Line
+	5650 3450 5700 3450
+Text GLabel 9150 3150 0    60   Input ~ 0
+REGOUT
+Wire Wire Line
+	9150 3150 9200 3150
+Wire Wire Line
+	9200 3150 9200 3200
+$Comp
+L GND #PWR49
+U 1 1 5AEEC123
+P 9200 3550
+F 0 "#PWR49" H 9200 3300 50  0001 C CNN
+F 1 "GND" H 9200 3400 50  0000 C CNN
+F 2 "" H 9200 3550 50  0000 C CNN
+F 3 "" H 9200 3550 50  0000 C CNN
+	1    9200 3550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9200 3550 9200 3500
+$Comp
+L GND #PWR46
+U 1 1 5AEEC189
+P 6750 3850
+F 0 "#PWR46" H 6750 3600 50  0001 C CNN
+F 1 "GND" H 6750 3700 50  0000 C CNN
+F 2 "" H 6750 3850 50  0000 C CNN
+F 3 "" H 6750 3850 50  0000 C CNN
+	1    6750 3850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6700 3550 6750 3550
+Wire Wire Line
+	6750 3550 6750 3850
+Text GLabel 9850 3150 0    60   Input ~ 0
+VDDIO
+$Comp
+L C C22
+U 1 1 5AEEC1CC
+P 9900 3350
+F 0 "C22" H 9925 3450 50  0000 L CNN
+F 1 "2.2nF" H 9925 3250 50  0000 L CNN
+F 2 "" H 9938 3200 50  0000 C CNN
+F 3 "" H 9900 3350 50  0000 C CNN
+	1    9900 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9850 3150 9900 3150
+Wire Wire Line
+	9900 3150 9900 3200
+$Comp
+L GND #PWR50
+U 1 1 5AEEC205
+P 9900 3550
+F 0 "#PWR50" H 9900 3300 50  0001 C CNN
+F 1 "GND" H 9900 3400 50  0000 C CNN
+F 2 "" H 9900 3550 50  0000 C CNN
+F 3 "" H 9900 3550 50  0000 C CNN
+	1    9900 3550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9900 3550 9900 3500
+Wire Wire Line
+	5600 3250 5700 3250
+Connection ~ 5650 3000
+Text GLabel 5600 3250 0    60   Input ~ 0
+VDDIO
+Connection ~ 5650 3250
+$Comp
+L +3V3 #PWR47
+U 1 1 5AEEC37F
+P 7250 2950
+F 0 "#PWR47" H 7250 2800 50  0001 C CNN
+F 1 "+3V3" H 7250 3090 50  0000 C CNN
+F 2 "" H 7250 2950 50  0000 C CNN
+F 3 "" H 7250 2950 50  0000 C CNN
+	1    7250 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7250 3350 7250 2950
+Wire Wire Line
+	7250 3350 6700 3350
+$EndSCHEMATC
